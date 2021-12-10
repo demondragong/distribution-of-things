@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<div class="container px-4">
+  <article class="row mb-4">
+    <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-7 mx-auto">
+        <h1 class="mb-4 fw-light">{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <div>{{ post.content | safe }}</div>
+    </div>
+  </article>
+  <div class="row mt-4">
+    <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-7 mx-auto">
+      {% if previous_post %}
+        <a href="{% url 'post_detail' previous_post.slug %}" class="btn btn-outline-secondary">Previous</a>
+      {% endif %}
+      {% if next_post %}
+        <a href="{% url 'post_detail' next_post.slug %}" class="btn btn-outline-secondary">Next</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
