@@ -1,7 +1,10 @@
 from django.views import generic
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView
 from .models import Post
 
+class PostListView(ListView):
+    model = Post
 
 def post_detail(request, slug=None):
     if slug is None:
