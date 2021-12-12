@@ -1,17 +1,22 @@
 {% extends "blog/base.html" %}
+{% load static %}
 
 {% block title %}
 Distribution of things
 {% endblock title %}
 
 {% block content %}
+<img src="{% static 'blog/images/ezra-jeffrey-comeau-unsplash.jpg' %}" class="img-fluid" alt="mountains that look like normal distributions or bell curves, photo by Ezra Jeffrey-Comeau">
 <div class="container px-4">
   <div class="row mb-4">
     <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-7 mx-auto">
-    <ul>
+    <br><br>
+    <h2>Available distributions</h2>
+        <ul>
         {% for post in object_list %}
             <li><a href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></li>
         {% endfor %}
+            <li>More to come...</li>
     </ul>
     </div>
   </div>
