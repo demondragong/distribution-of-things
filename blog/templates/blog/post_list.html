@@ -7,17 +7,30 @@ Distribution of things
 
 {% block content %}
 <img src="{% static 'blog/images/ezra-jeffrey-comeau-unsplash.jpg' %}" class="img-fluid" alt="mountains that look like normal distributions or bell curves, photo by Ezra Jeffrey-Comeau">
-<div class="container px-4">
-  <div class="row mb-4">
-    <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-7 mx-auto">
-    <br><br>
-    <h2>Available distributions</h2>
-        <ul>
+
+  <section class="py-3 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+              <p class="lead text-muted">Trying to understand the world we live in by looking at histograms and density plots.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="album">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for post in object_list %}
-            <li><a href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></li>
+            <div class="col">
+                <div class="card">
+                    <a href="{% url 'post_detail' post.slug  %}"><img class="card-img-top" src="{{ post.image.url }}"></a>
+                    <div class="card-body">
+                        <p class="card-text">{{ post.title }} - <a class="card-link" href="{% url 'post_detail' post.slug  %}">Read</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-            <li>More to come...</li>
-    </ul>
     </div>
   </div>
 </div>
