@@ -23,7 +23,7 @@ Distribution of things
         {% for post in object_list %}
             <div class="col">
                 <div class="card">
-                    <a href="{% url 'post_detail' post.slug  %}"><img class="card-img-top" src="{{ post.image.url }}"></a>
+                    <a href="{% url 'post_detail' post.slug  %}"><img class="card-img-top" src="{% static post.image_path %}" alt="distribution of {{ post.title }}"></a>
                     <div class="card-body">
                         <p class="card-text">{{ post.title }} - <a class="card-link" href="{% url 'post_detail' post.slug  %}">Read</a>
                         </p>
