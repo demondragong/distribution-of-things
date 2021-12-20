@@ -25,6 +25,12 @@
             a:link {
                 text-decoration: none;
             }
+            a:hover {
+  text-decoration: underline;
+}
+            .card:hover{
+            box-shadow:0 .125rem .25rem rgba(0,0,0,.2);
+            }
         </style>
     </head>
 
@@ -39,23 +45,24 @@
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
-        <div class="container">
-          <footer class="py-5">
+        <div class="container px-4">
+          <footer class="pt-3">
 
 
-<!--            <div class="d-flex justify-content-between py-4 my-4 border-top">-->
+            <div class="pt-3 my-4 border-top">
 
-<!--              <form>-->
+                <form method="post" action="{% url 'subscription' %}">
+                  {% csrf_token %}
+                    <div class="row align-items-center">
+                        <label for="newsletter" class="col-sm-8 my-2">Receive an email when a new distribution is published. About once per month.</label>
+                        <div class="col-sm-4 d-flex gap-2">
+                            <input id="newsletter" type="email" name="email" class="form-control" placeholder="Email address">
+                            <button class="btn btn-outline-secondary" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
 
-<!--                  <p>Get an email when a new distribution is published (once a month if I'm not lazy)</p>-->
-<!--                  <div class="d-flex w-100 gap-2">-->
-<!--                    <label for="newsletter1" class="visually-hidden">Email address</label>-->
-<!--                    <input id="newsletter1" type="text" class="form-control" placeholder="Email address">-->
-<!--                    <button class="btn btn-primary" type="button">Subscribe</button>-->
-<!--                  </div>-->
-<!--                </form>-->
-
-<!--            </div>-->
+            </div>
           </footer>
         </div>
     </body>
