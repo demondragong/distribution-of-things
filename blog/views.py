@@ -16,6 +16,8 @@ list_id = settings.MAILCHIMP_EMAIL_LIST_ID
 
 class PostListView(ListView):
     model = Post
+    ordering = ['-updated_on']
+
 
 # Subscription Logic
 def subscribe(email):
