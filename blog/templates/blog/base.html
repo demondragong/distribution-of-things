@@ -37,7 +37,7 @@
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light mb-4" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container-fluid px-4">
                 <a class="navbar-brand text-muted" href="{% url 'home' %}">Distribution of things</a>
                 <a class="navbar-brand text-muted" href="{% url 'about' %}">about</a>
@@ -50,7 +50,7 @@
           <footer class="pt-3">
 
 
-            <div class="pt-3 my-4 border-top">
+            <div class="pt-3 my-3 border-top">
 
                 <form method="post" action="{% url 'subscription' %}">
                   {% csrf_token %}
